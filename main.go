@@ -68,7 +68,7 @@ func writeToOutputPath(objectPath, outputPath string) error {
 			}
 		}()
 		fmt.Printf("检测到参数【%s】为git仓库，开始克隆\n", objectPath)
-		cmd := exec.Command("git", "clone", objectPath, tempDir)
+		cmd := exec.Command("git", "clone", "--depth=1", objectPath, tempDir)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		err := cmd.Run()
